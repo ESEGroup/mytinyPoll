@@ -1,1 +1,3 @@
 Dicas Git!
+
+1. Sempre descreva suas alterações!
