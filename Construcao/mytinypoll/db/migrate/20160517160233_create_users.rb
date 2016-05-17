@@ -1,10 +1,10 @@
-class CreateUsuarios < ActiveRecord::Migration
+class CreateUsers < ActiveRecord::Migration
   def change
-    create_table :usuarios do |t|
-      t.string :nome
+    create_table :users do |t|
+      t.string :name
       t.string :email
       t.string :cpf
-      t.string :senha
+      t.string :password
       t.string :idfacebook
 
       t.timestamps null: false
