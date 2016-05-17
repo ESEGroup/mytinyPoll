@@ -1,0 +1,22 @@
+<div class="login">
+	<div class="container">
+		<div class="form">
+
+      <h1>Cadastro</h1>
+    
+    <%= form_for(@usuario) do |u| %>
+      <p>  Nome: <%= u.text_field :nome %> </p>
+      <p>  CPF: <%= u.text_field : cpf%> </p>
+      <p>  Facebook Id:<%= u.text_field :facebookID %> </p> #não sei como está a variável no modelo
+      <p>  Email: <%= u.email_field :email%>
+      <p>  Senha <%= u.password_field :senha %> </p>
+      <p>  Repetir Senha: <%= u.password_field :senha %> </p>
+        
+       
+		<%= u.submit "Create an account"%>
+    <% end %>
+
+		
+    </div>
+	</div>
+</div>
