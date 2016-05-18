@@ -5,6 +5,11 @@ class UsersController < ApplicationController
   # GET /users.json
   def index
     @users = User.all
+    
+    respond_to do |format|
+      format.html #index.html.erb
+      format.json { render json: @users}
+    end
   end
 
   # GET /users/1
@@ -71,4 +76,5 @@ class UsersController < ApplicationController
     def user_params
       params.require(:user).permit(:name, :email, :cpf, :password, :idfacebook)
     end
+    
 end
