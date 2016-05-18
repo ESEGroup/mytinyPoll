@@ -1,12 +1,13 @@
 class SessionsController < ApplicationController
   def login
-    user = User.find_by(email: params[:session][:email].downcase)
-    if user && user.authenticate(params[:session][:password])
-      log_in user
+    loggedin = UsersController.authenticate(params[:email],params[:password])
+    if (loggedin)
       redirect_to user
     else
       flash.now[:danger] = 'Invalid email/password combination'
     end
+    render :nothing => true
+  
   end
 
   def logout
