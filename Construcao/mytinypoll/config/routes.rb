@@ -59,10 +59,14 @@ Rails.application.routes.draw do
   #     resources :products
   #   end
   
-  get    'login'   => 'sessions#new'
-  post   'login'   => 'sessions#create'
-  delete 'logout'  => 'sessions#destroy'
+  # Session routes
+  delete "logout"  => "sessions#logout"
+  post   "login"   => "sessions#login"
+  
+  # Home routes
   get "about", to: "home#about"
   get "signup", to: "users#new"
+  
+  # Root of the application
   root 'home#index'
 end

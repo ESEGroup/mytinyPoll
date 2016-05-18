@@ -1,9 +1,5 @@
 class SessionsController < ApplicationController
-  
-  def new
-  end
-
-  def create
+  def login
     user = User.find_by(email: params[:session][:email].downcase)
     if user && user.authenticate(params[:session][:password])
       log_in user
@@ -13,7 +9,7 @@ class SessionsController < ApplicationController
     end
   end
 
-  def destroy
+  def logout
   end
   
   private 
