@@ -77,4 +77,16 @@ class UsersController < ApplicationController
       params.require(:user).permit(:name, :email, :cpf, :password, :idfacebook)
     end
     
+    def authenticate (params_email :string, params_password :string)
+        test = false
+        if(user = User.find_by(email: params_email))
+          if(user.password.eql? params_password)
+              test = true  
+          end
+        else
+          error.add("Usuário ou senha inválida")
+        end
+        return test
+    end
+  
 end
