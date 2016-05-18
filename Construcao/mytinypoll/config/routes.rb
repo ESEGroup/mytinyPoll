@@ -56,7 +56,7 @@ Rails.application.routes.draw do
   #     resources :products
   #   end
   
-  get "/about", to: "home#about"
-  get "/signup", to: "users#new"
+  get "about", to: "home#about"
+  get "signup", to: "users#new"
   root 'home#index'
 end

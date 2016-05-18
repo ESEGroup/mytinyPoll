@@ -1,3 +1,21 @@
 <%= render :layout => '/layouts/unauthpagestruct' do %>
   <h1>Index!</h1>
+  <%= form_for(:session, url: login_path) do |f| %>
+      <div class="row">
+          <div class="col s12 m6 offset-m3 center">
+            <div class="input-field">
+              <%= f.label :email %><br>
+              <%= f.text_field :email %>
+            </div>
+            <div class="input-field">
+              <%= f.label :password %><br>
+              <%= f.password_field :password %>
+            </div>
+            <div class="actions">
+                <%= f.submit("Entrar", class: "btn waves-effect waves-light") %>
+                <%= link_to "Sign Up", :signup, :class => "btn waves-effect waves-light" %>
+            </div>
+          </div>
+      </div>
+    <% end %>
 <% end %>
