@@ -1,20 +1,15 @@
 class SessionsController < ApplicationController
-  
-  def new
-  end
-
-  def create
+  def login
     user = User.find_by(email: params[:session][:email].downcase)
     if user && user.authenticate(params[:session][:password])
-      flash[:notice] = "Login efetuado com sucesso" 
+      log_in user
+      redirect_to user
     else
-      flash[:danger] = "Login ou senha incorretos" 
-      render 'new'
+      flash.now[:danger] = 'Invalid email/password combination'
     end
-      
   end
 
-  def destroy
+  def logout
   end
   
   private 
