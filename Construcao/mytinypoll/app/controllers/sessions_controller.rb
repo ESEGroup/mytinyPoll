@@ -1,20 +1,15 @@
 class SessionsController < ApplicationController
   def login
-    loggedin = UsersController.authenticate(params[:email],params[:password])
+    usercontroller = UsersController.new
+    loggedin = usercontroller.authenticate(params[:session][:email], params[:session][:password])
     if (loggedin)
-      redirect_to user
+      render text: "Usuario Logado com sucesso!"
     else
-      flash.now[:danger] = 'Invalid email/password combination'
+      redirect_to root_path
     end
-    render :nothing => true
-  
   end
 
   def logout
   end
-  
-  private 
-  #password :string
-  #email :string
   
 end
