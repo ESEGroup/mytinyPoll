@@ -26,9 +26,10 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 ### Manually insertide Gems
 # Gem to use Materialize with Ruby on Rails
 gem 'materialize-sass' 
-
-# Use ActiveModel has_secure_password
-# gem 'bcrypt', '~> 3.1.7'
+# Re-captcha gem for user signup
+gem "recaptcha", require: "recaptcha/rails"
+# Encrypt the password to save
+gem 'bcrypt', '~> 3.1.7'
 
 # Use Unicorn as the app server
 # gem 'unicorn'
