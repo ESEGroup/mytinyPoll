@@ -30,6 +30,8 @@ gem 'materialize-sass'
 gem "recaptcha", require: "recaptcha/rails"
 # Encrypt the password to save
 gem 'bcrypt', '~> 3.1.7'
+# Manage Env variables
+gem 'dotenv-rails', :groups => [:development, :test]
 
 # Use Unicorn as the app server
 # gem 'unicorn'
