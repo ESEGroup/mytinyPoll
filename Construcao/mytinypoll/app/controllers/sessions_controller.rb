@@ -3,7 +3,7 @@ class SessionsController < ApplicationController
     usercontroller = UsersController.new
     loggedin = usercontroller.authenticate(params[:session][:email], params[:session][:password])
     if (loggedin)
-      render text: "Usuario Logado com sucesso!"
+      render text: "Usuário Logado com sucesso!"
     else
       redirect_to root_path
     end
