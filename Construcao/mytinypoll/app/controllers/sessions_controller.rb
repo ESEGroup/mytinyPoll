@@ -5,11 +5,10 @@ class SessionsController < ApplicationController
     if (loggedin)
       render text: "Usuário Logado com sucesso!"
     else
-      redirect_to root_path
+      redirect_to root_path, :error => "Login ou senha inválido"
     end
   end
 
   def logout
   end
-  
 end
