@@ -25,4 +25,8 @@ module UsersHelper
         return false # CPF invalidado
     end
     
+    def authenticate_mail(email)
+        return email =~ /\A[\w+\-.]+@[a-z\d\-]+(\.[a-z]+)*\.[a-z]+\z/i
+    end
+    
 end
