@@ -1,2 +1,3 @@
-class PollObjetive < ActiveRecord::Base
+class PollObjetive < Poll 
+    has_many :option
 end

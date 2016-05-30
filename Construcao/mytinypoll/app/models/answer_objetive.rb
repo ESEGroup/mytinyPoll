@@ -1,2 +1,3 @@
-class AnswerObjetive < ActiveRecord::Base
+class AnswerObjetive < Answer
+    belongs_to :option
 end

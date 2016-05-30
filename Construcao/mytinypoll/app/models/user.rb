@@ -1,6 +1,10 @@
 class User < ActiveRecord::Base
-    #include module UsersHelper
-    
+ 
+    #has_and_belongs_to_many :answered_polls, foreign_key: "user_id", class_name: "Poll"
+    #has_and_belongs_to_many :interested_polls, foreign_key: "user_id", class_name: "Poll"
+    has_and_belongs_to_many :answered_polls, :class_name => "Poll", :join_table => "respondents_polls", :foreign_key => "user_id"
+    has_and_belongs_to_many :interesting_polls, :class_name => "Poll", :join_table => "interested_polls", :foreign_key => "user_id"
+   
     validates_presence_of :name
     validates_presence_of :email
     validates_presence_of :cpf 

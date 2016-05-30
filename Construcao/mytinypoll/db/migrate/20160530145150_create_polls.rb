@@ -1,7 +1,7 @@
 class CreatePolls < ActiveRecord::Migration
   def change
     create_table :polls do |t|
-      t.bool :visible
+      t.boolean :visible
       t.string :question
       t.string :path_image
 
