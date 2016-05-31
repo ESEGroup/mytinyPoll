@@ -3,7 +3,8 @@ class SessionsController < ApplicationController
     usercontroller = UsersController.new
     loggedin = usercontroller.authenticate(params[:session][:email], params[:session][:password])
     if (loggedin)
-      render text: "Usuário Logado com sucesso!"
+      #render text: "Usuário Logado com sucesso!"
+      redirect_to consulta: usercontroller
     else
       redirect_to root_path, :error => "Login ou senha inválido"
     end
@@ -11,4 +12,5 @@ class SessionsController < ApplicationController
 
   def logout
   end
+  
 end
