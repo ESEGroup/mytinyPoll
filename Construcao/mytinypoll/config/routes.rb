@@ -74,6 +74,7 @@ Rails.application.routes.draw do
   
   #Consultation routes
   get "consulta", to: "consultation#index"
+  get "permissao", to: "consultation#create_permission"
   
   # Root of the application
   root 'home#index'

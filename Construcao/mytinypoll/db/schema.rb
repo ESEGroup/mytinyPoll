@@ -53,11 +53,11 @@ ActiveRecord::Schema.define(version: 20160530223611) do
   end
 
   create_table "users", force: :cascade do |t|
-    t.string   "name",       limit: 255
-    t.string   "email",      limit: 255
-    t.string   "cpf",        limit: 255
-    t.string   "password",   limit: 255
-    t.string   "idfacebook", limit: 255
+    t.string   "name",       limit: 35
+    t.string   "email",      limit: 35
+    t.string   "cpf",        limit: 11
+    t.string   "password",   limit: 150
+    t.string   "idfacebook", limit: 35
     t.datetime "created_at",             null: false
     t.datetime "updated_at",             null: false
   end
