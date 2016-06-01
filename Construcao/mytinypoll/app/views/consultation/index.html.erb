@@ -1,0 +1,20 @@
+<%= render :layout => '/layouts/unauthpagestruct' do %>
+  <h1>Index!</h1>
+  <%= form_for(:consultation, url: consulta_path) do |f| %>
+      <div class="row">
+          <div class="col s12 m6 offset-m3 center">
+            <% if flash[:error] %>
+              <div class="Error" style="color: red; font-size:150%"><%= flash[:error] %></div>
+            <% end %>
+            <div class="row center">
+                 <%= link_to "Sign Up", :signup, :class => "btn waves-effect waves-light" %>
+                <a href="http://materializecss.com/getting-started.html" id="download-button" class="btn-large waves-effect waves-light orange">Get Started</a>
+             </div>
+            <div class="actions">
+                <%= f.submit("Entrar", class: "btn waves-effect waves-light") %>
+                <%= link_to "Sign Up", :signup, :class => "btn waves-effect waves-light" %>
+            </div>
+          </div>
+      </div>
+    <% end %>
+<% end %>
