@@ -2,7 +2,9 @@ class SessionsController < ApplicationController
   def login
     usercontroller = UsersController.new
     loggedin = usercontroller.authenticate(params[:session][:email], params[:session][:password])
+    
     if (loggedin)
+      session[:user_id] = loggedin.id
       #render text: "Usuário Logado com sucesso!"
       redirect_to consulta_path
     else
