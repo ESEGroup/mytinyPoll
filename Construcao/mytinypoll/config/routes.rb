@@ -60,9 +60,9 @@ Rails.application.routes.draw do
   #     resources :products
   #   end
   
-  resources :sessions do
-    resources :consultation, shallow: true
-  end
+  #resources :sessions do
+  #  resources :consultation, shallow: true
+  #end
   
   # Session routes
   delete "logout"  => "sessions#logout"
