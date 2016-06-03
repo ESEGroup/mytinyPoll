@@ -1,4 +1,6 @@
 class CreatorRequisitionList < ActiveRecord::Base
-    belongs_to :manager
-    has_many :user
+    belongs_to :manager, dependent: :destroy
+    has_many :user 
+    
+    
 end

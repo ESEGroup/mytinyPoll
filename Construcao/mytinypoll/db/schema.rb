@@ -11,22 +11,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160601153127) do
-
-  create_table "answer_discursives", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "answer_objetives", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
+ActiveRecord::Schema.define(version: 20160603145914) do
 
   create_table "answers", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",           null: false
+    t.datetime "updated_at",           null: false
+    t.integer  "polls_id",   limit: 4
   end
+
+  add_index "answers", ["polls_id"], name: "index_answers_on_polls_id", using: :btree
 
   create_table "creator_requisition_lists", force: :cascade do |t|
     t.datetime "created_at", null: false
@@ -38,21 +31,36 @@ ActiveRecord::Schema.define(version: 20160601153127) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "discursive_answers", force: :cascade do |t|
+    t.string   "answer",     limit: 255
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+  end
+
   create_table "managers", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  create_table "options", force: :cascade do |t|
-    t.string   "option",     limit: 255
-    t.datetime "created_at",             null: false
-    t.datetime "updated_at",             null: false
+  create_table "objective_answers", force: :cascade do |t|
+    t.datetime "created_at",           null: false
+    t.datetime "updated_at",           null: false
+    t.integer  "options_id", limit: 4
   end
 
-  create_table "poll_objetives", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+  add_index "objective_answers", ["options_id"], name: "index_objective_answers_on_options_id", using: :btree
+
+  create_table "objective_polls", force: :cascade do |t|
   end
+
+  create_table "options", force: :cascade do |t|
+    t.string   "option",             limit: 255
+    t.datetime "created_at",                     null: false
+    t.datetime "updated_at",                     null: false
+    t.integer  "objective_polls_id", limit: 4
+  end
+
+  add_index "options", ["objective_polls_id"], name: "index_options_on_objective_polls_id", using: :btree
 
   create_table "polls", force: :cascade do |t|
     t.boolean  "visible"
@@ -62,12 +70,27 @@ ActiveRecord::Schema.define(version: 20160601153127) do
     t.datetime "updated_at",             null: false
   end
 
+  create_table "polls_creators", id: false, force: :cascade do |t|
+    t.integer "creator_id", limit: 4, null: false
+    t.integer "poll_id",    limit: 4, null: false
+  end
+
+  create_table "polls_interested", id: false, force: :cascade do |t|
+    t.integer "user_id", limit: 4, null: false
+    t.integer "poll_id", limit: 4, null: false
+  end
+
+  create_table "polls_respondents", id: false, force: :cascade do |t|
+    t.integer "user_id", limit: 4, null: false
+    t.integer "poll_id", limit: 4, null: false
+  end
+
   create_table "users", force: :cascade do |t|
-    t.string   "name",       limit: 35
-    t.string   "email",      limit: 35
-    t.string   "cpf",        limit: 11
-    t.string   "password",   limit: 150
-    t.string   "idfacebook", limit: 35
+    t.string   "name",       limit: 255
+    t.string   "email",      limit: 255
+    t.string   "cpf",        limit: 255
+    t.string   "password",   limit: 255
+    t.string   "idfacebook", limit: 255
     t.datetime "created_at",             null: false
     t.datetime "updated_at",             null: false
   end
