@@ -1,5 +1,6 @@
 class User < ActiveRecord::Base
     #include module UsersHelper
+    attr_accessor :password_confirmation
     
     validates_presence_of :name
     validates_presence_of :email
@@ -11,6 +12,8 @@ class User < ActiveRecord::Base
     
     validates_format_of :email, with:/\A[\w+\-.]+@[a-z\d\-]+(\.[a-z]+)*\.[a-z]+\z/i, message: "Email inválido"
     validates_length_of :cpf, :is => 11, message: "O CPF deve possuir 11 dígitos"
+    
+    validates_confirmation_of :password
     
     validates :cpf, cpf: true # Call cpf_validator
 end
