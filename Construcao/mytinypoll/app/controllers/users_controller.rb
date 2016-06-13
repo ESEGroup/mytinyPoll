@@ -31,7 +31,7 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     respond_to do |format|
-        if (verify_recaptcha and @user.save)
+        if (verify_recaptcha and validate_repassword and @user.save)
           format.html { redirect_to root_path, notice: 'User was successfully created.' }
           format.json { render :show, status: :created, location: @user }
         else
@@ -77,6 +77,14 @@ class UsersController < ApplicationController
   end
   
   private
+    # Check if the password and repassword match
+    def validate_repassword
+      puts "PASSWORD : " + :password.to_s
+      puts "REPASSWORD : " + :repassword.to_s
+      puts "VALIDATE PASSWORD : " + (:repassword == :password).to_s
+      return (:repassword == :password)
+    end
+    
     # Use callbacks to share common setup or constraints between actions.
     def set_user
       @user = User.find(params[:id])
