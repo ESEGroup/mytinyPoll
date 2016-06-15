@@ -30,7 +30,7 @@ class SessionsController < ApplicationController
         render text: "Usuário Logado com sucesso!"
       else
         session[:missedlogin] = true
-        redirect_to root_path, :error => "Login, senha ou ReCaptcha inválido!"
+        redirect_to root_url, :error => "Login, senha ou ReCaptcha inválido!"
       end
     
     # First attempt to login in the system will be executed here.
@@ -40,7 +40,7 @@ class SessionsController < ApplicationController
         reset_session
       else
         session[:missedlogin] = true
-        redirect_to root_path, :error => "Login ou senha inválido!"
+        redirect_to root_url, :error => "Login ou senha inválido!"
       end
     end
   end
