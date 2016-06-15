@@ -67,14 +67,15 @@ class UsersController < ApplicationController
   end
   
   def authenticate (params_email, params_password)
-    test = false
+    #test = false
+    #user = null
     if(params_email =~ /\A[\w+\-.]+@[a-z\d\-]+(\.[a-z]+)*\.[a-z]+\z/i)
       user = User.find_by(email: params_email)
       if(user and user.password.eql? params_password)
-        test = true  
+        return user 
       end
     end
-    return test
+    return user
   end
   
   private

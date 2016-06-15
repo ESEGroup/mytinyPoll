@@ -1,7 +1,19 @@
 class User < ActiveRecord::Base
     #include module UsersHelper
     attr_accessor :password_confirmation
+ 
+    has_many :polls, :through => :polls_respondents
+    has_many :polls, :through => :polls_interested
     
+    
+    #has_and_belongs_to_many :answered_polls, foreign_key: "user_id", class_name: "Poll"
+    
+    #has_and_belongs_to_many :interested_polls, foreign_key: "user_id", class_name: "Poll"
+    
+    # :answered_polls, :class_name => "Poll", :join_table => "respondents_polls", :foreign_key => "user_id"
+    #has_and_belongs_to_many :interesting_polls, :class_name => "Poll", :join_table => "interested_polls", :foreign_key => "user_id"
+    belongs_to :creator_requisition_list
+  
     validates_presence_of :name
     validates_presence_of :email
     validates_presence_of :cpf

@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
 
 
+  resources :managers
   resources :users
   resources :home
   resources :session
@@ -60,6 +61,10 @@ Rails.application.routes.draw do
   #     resources :products
   #   end
   
+  #resources :sessions do
+  #  resources :consultation, shallow: true
+  #end
+  
   # Session routes
   delete "logout"  => "sessions#logout"
   post   "login"   => "sessions#login"
@@ -67,6 +72,10 @@ Rails.application.routes.draw do
   # Home routes
   get "about", to: "home#about"
   get "signup", to: "users#new"
+  
+  #Consultation routes
+  get "consulta", to: "consultation#index"
+  get "permissao", to: "consultation#create_permission"
   
   # Root of the application
   root 'home#index'

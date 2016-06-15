@@ -27,7 +27,7 @@ class SessionsController < ApplicationController
     # recaptcha to prove he isn't a bot.
     if session[:missedlogin]
       if (verify_recaptcha and loggedin)
-        render text: "Usuário Logado com sucesso!"
+        redirect_to consulta_path
       else
         session[:missedlogin] = true
         redirect_to root_url, :error => "Login, senha ou ReCaptcha inválido!"
@@ -36,7 +36,7 @@ class SessionsController < ApplicationController
     # First attempt to login in the system will be executed here.
     else
       if (loggedin)
-        render text: "Usuário Logado com sucesso!"
+        redirect_to consulta_path
         reset_session
       else
         session[:missedlogin] = true

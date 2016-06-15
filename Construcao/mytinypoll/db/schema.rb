@@ -11,7 +11,79 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160517160233) do
+ActiveRecord::Schema.define(version: 20160603145914) do
+
+  create_table "answers", force: :cascade do |t|
+    t.datetime "created_at",           null: false
+    t.datetime "updated_at",           null: false
+    t.integer  "polls_id",   limit: 4
+  end
+
+  add_index "answers", ["polls_id"], name: "index_answers_on_polls_id", using: :btree
+
+  create_table "creator_requisition_lists", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "creators", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "discursive_answers", force: :cascade do |t|
+    t.string   "answer",     limit: 255
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+  end
+
+  create_table "managers", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "objective_answers", force: :cascade do |t|
+    t.datetime "created_at",           null: false
+    t.datetime "updated_at",           null: false
+    t.integer  "options_id", limit: 4
+  end
+
+  add_index "objective_answers", ["options_id"], name: "index_objective_answers_on_options_id", using: :btree
+
+  create_table "objective_polls", force: :cascade do |t|
+  end
+
+  create_table "options", force: :cascade do |t|
+    t.string   "option",             limit: 255
+    t.datetime "created_at",                     null: false
+    t.datetime "updated_at",                     null: false
+    t.integer  "objective_polls_id", limit: 4
+  end
+
+  add_index "options", ["objective_polls_id"], name: "index_options_on_objective_polls_id", using: :btree
+
+  create_table "polls", force: :cascade do |t|
+    t.boolean  "visible"
+    t.string   "question",   limit: 255
+    t.string   "path_image", limit: 255
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+  end
+
+  create_table "polls_creators", id: false, force: :cascade do |t|
+    t.integer "creator_id", limit: 4, null: false
+    t.integer "poll_id",    limit: 4, null: false
+  end
+
+  create_table "polls_interested", id: false, force: :cascade do |t|
+    t.integer "user_id", limit: 4, null: false
+    t.integer "poll_id", limit: 4, null: false
+  end
+
+  create_table "polls_respondents", id: false, force: :cascade do |t|
+    t.integer "user_id", limit: 4, null: false
+    t.integer "poll_id", limit: 4, null: false
+  end
 
   create_table "users", force: :cascade do |t|
     t.string   "name",       limit: 255

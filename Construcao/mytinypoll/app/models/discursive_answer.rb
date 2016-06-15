@@ -1,0 +1,3 @@
+class DiscursiveAnswer < Answer
+    
+end

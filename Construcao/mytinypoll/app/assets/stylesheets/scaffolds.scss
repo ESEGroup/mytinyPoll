@@ -19,10 +19,10 @@ pre {
 }
 
 a {
-  color: #fff;
+  color: #000;
 
   &:visited {
-    color: #fff;
+    color: #666;
   }
 
   &:hover {
@@ -70,14 +70,4 @@ div {
     font-size: 12px;
     list-style: square;
   }
-}
-
-body {
-    display: flex;
-    min-height: 100vh;
-    flex-direction: column;
-}
-
-main {
-    flex: 1 0 auto;
 }
