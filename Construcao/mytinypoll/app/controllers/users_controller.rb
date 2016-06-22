@@ -72,7 +72,7 @@ class UsersController < ApplicationController
     if(params_email =~ /\A[\w+\-.]+@[a-z\d\-]+(\.[a-z]+)*\.[a-z]+\z/i)
       user = User.find_by(email: params_email)
       if(user and user.password.eql? params_password)
-        return user 
+        return user.id
       end
     end
     return user

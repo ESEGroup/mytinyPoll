@@ -1,6 +1,6 @@
 class ManagerMailer < ApplicationMailer
     default from: 'mytinypoll@gmail.com'  
-    default to: 'vercoza.thays@gmail.com'       #change to manager mail
+    default to: 'hguimaraes@poli.ufrj.br'       #change to manager mail
     def creator_permission_email(name, email)
         Rails.logger.debug("debug:: dentro do email")
         @url  = 'http://www.gmail.com'

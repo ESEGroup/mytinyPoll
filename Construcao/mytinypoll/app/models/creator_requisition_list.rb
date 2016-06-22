@@ -1,6 +1,7 @@
 class CreatorRequisitionList < ActiveRecord::Base
-    belongs_to :manager, dependent: :destroy
-    has_many :user 
+    has_many :users, autosave: true
+    accepts_nested_attributes_for :users
     
+    attr_accessor :id
     
 end
