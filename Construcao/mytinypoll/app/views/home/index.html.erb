@@ -1,0 +1,117 @@
+<nav class="light-blue lighten-1" role="navigation">
+    <div class="nav-wrapper container"><a id="logo-container" href="#" class="brand-logo">Logo</a>
+        <ul class="right hide-on-med-and-down">
+          <li><a class="modal-trigger" href="#signin-modal">Entrar</a></li>
+          <li><a href="#signup">Cadastre-se</a></li>
+          <li><a href="#about-footer">Sobre</a></li>
+        </ul>
+
+        <ul id="nav-mobile" class="side-nav">
+          <li><a class="modal-trigger" href="#signin-modal">Entrar</a></li>
+          <li><a href="#signup">Cadastre-se</a></li>
+          <li><a href="#about-footer">Sobre</a></li>
+        </ul>
+        <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
+    </div>
+</nav>
+<div class="section no-pad-bot" id="index-banner">
+    <div class="container">
+        <br><br>
+        <h1 class="header center orange-text">MyTinyPoll</h1>
+        <div class="row center">
+            <h5 class="header col s12 light">A modern app for the youth that considers themselves global citizens</h5>
+        </div>
+        <div class="row center">
+            <a href="#icon-block" id="download-button" class="btn-large waves-effect waves-light orange">Get Started</a>
+        </div>
+        <br><br>
+    </div>
+</div>
+
+<!-- Modal Structure for signin-->
+<div id="signin-modal" class="modal modal-fixed-footer">
+    <div class="modal-content">
+        <h4 class="header center orange-text"> Sign in</h4>
+        <div class="container">
+          <%= render 'devise/sessions/new' do %>
+          <% end %>
+        </div>
+    </div>
+    <div class="modal-footer">
+      <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Cancelar</a>
+    </div>
+</div>
+
+<!-- Main content -->
+<div class="container">
+    <!--   Icon Section   -->
+    <div class="section">
+        <div class="row">
+            <div class="col s12 m4">
+                <div id="icon-block" class="icon-block">
+                    <h2 class="center light-blue-text"><i class="material-icons">work</i></h2>
+                    <h5 class="center">Are you travelling?</h5>
+                    <p class="light">We did most of the heavy lifting for you to provide a default stylings that incorporate our custom components. Additionally, we refined animations and transitions to provide a smoother experience for developers.</p>
+                </div>
+            </div>
+            <div class="col s12 m4">
+                <div class="icon-block">
+                    <h2 class="center light-blue-text"><i class="material-icons">group</i></h2>
+                    <h5 class="center">Friendship is all that matters</h5>
+                    <p class="light">By utilizing elements and principles of Material Design, we were able to create a framework that incorporates components and animations that provide more feedback to users. Additionally, a single underlying responsive system across all platforms allow for a more unified user experience.</p>
+                </div>
+            </div>
+            <div class="col s12 m4">
+                <div class="icon-block">
+                    <h2 class="center light-blue-text"><i class="material-icons">settings</i></h2>
+                    <h5 class="center">Easy to use</h5>
+                    <p class="light">We have provided detailed documentation as well as specific code examples to help new users get started. We are also always open to feedback and can answer any questions a user may have about Materialize.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Create New account section -->
+    <br><br>
+    <div class="section" id="signup">
+        <h2 class="header center orange-text">Crie uma nova conta</h2>
+        <br><br>
+        <%= render 'devise/registrations/new' do %>
+        <% end %>
+        <div class="row center">
+            <a class="modal-trigger" href="#terms-modal">Termos e condições</a>
+        </div>
+    </div>
+</div>
+
+<!-- Conditions modal for signup-->
+<div id="terms-modal" class="modal modal-fixed-footer">
+    <div class="modal-content">
+        <h4 class="header center orange-text"> Termos e condições </h4>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean dignissim felis non velit maximus, non iaculis dui ultrices. Donec eu lobortis ante, ut semper est. Pellentesque mattis, erat non facilisis bibendum, sem sem efficitur leo, eu dignissim ante erat sed tortor. Mauris cursus faucibus massa. Proin vitae dictum metus, sit amet posuere diam. Donec scelerisque, erat ac malesuada facilisis, velit nulla laoreet mi, vel vulputate est augue in metus. Nulla interdum quam sed iaculis venenatis. Nullam quis nibh at mi consectetur tempor ac sed dui. Maecenas id justo ut nibh mollis dictum eu vel odio. Sed sit amet sapien sed ante commodo auctor. In in venenatis felis, a faucibus massa. In vitae libero ipsum. Etiam id varius lorem. Aenean luctus diam sapien, nec placerat purus sodales eget. Ut scelerisque maximus elit non facilisis.</p>
+    </div>
+    <div class="modal-footer">
+        <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Ok</a>
+    </div>
+</div>
+
+<footer class="page-footer orange">
+    <div class="container">
+        <div class="row">
+            <div id="about-footer" class="col l6 s12">
+                <h5 class="white-text">MyTinyPoll&trade;</h5>
+                <p class="grey-text text-lighten-4">Breve descrição aqui</p>
+            </div>
+            <div id="social" class="col l6 s12">
+                <h5 class="white-text">Conecte-se conosco:</h5>
+                <a class="white-text" href="https://github.com/ESEGroup/mytinyPoll"><i class="fa fa-github fa-3x" aria-hidden="true"></i></a>
+            </div>
+        </div>
+    </div>
+    <div class="footer-copyright">
+        <div class="container center">
+            &copy; 2016 Copyright - All rights reserved to 
+            <a class="orange-text text-lighten-3" href="http://lens.cos.ufrj.br/es/">LENS-UFRJ&trade;</a>
+        </div>
+    </div>
+</footer>
