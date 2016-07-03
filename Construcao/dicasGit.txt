@@ -1,3 +1,0 @@
-Dicas Git!
-
-1. Sempre descreva suas alteracoes!

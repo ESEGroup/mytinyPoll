@@ -1,12 +1,4 @@
 Rails.application.routes.draw do
-
-
-  resources :managers
-  resources :users
-  resources :home
-  resources :session
-  resources :consultation
-  
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
@@ -61,23 +53,4 @@ Rails.application.routes.draw do
   #     # (app/controllers/admin/products_controller.rb)
   #     resources :products
   #   end
-  
-  #resources :sessions do
-  #  resources :consultation, shallow: true
-  #end
-  
-  # Session routes
-  delete "logout"  => "sessions#logout"
-  post   "login"   => "sessions#login"
-  
-  # Home routes
-  get "about", to: "home#about"
-  get "signup", to: "users#new"
-  
-  #Consultation routes
-  get "consulta", to: "consultation#index"
-  get "permissao", to: "consultation#create_permission"
-  
-  # Root of the application
-  root 'home#index'
 end

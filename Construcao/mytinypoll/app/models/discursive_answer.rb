@@ -1,3 +1,0 @@
-class DiscursiveAnswer < Answer
-    
-end
