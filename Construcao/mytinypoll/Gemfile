@@ -36,6 +36,8 @@ gem 'dotenv-rails', :groups => [:development, :test, :production]
 gem 'devise'
 # Gem for font-awesome design
 gem 'font-awesome-sass', '~> 4.6.2'
+# Gem for user roles and abilities
+gem 'cancan'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
