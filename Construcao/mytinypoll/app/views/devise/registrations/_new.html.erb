@@ -1,29 +1,53 @@
-<h2>Sign up</h2>
-
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= devise_error_messages! %>
-
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true %>
+  
+  <div class="row">
+    <div class="col s12 input-field">
+      <%= f.label :name , 'Nome' %><br />
+      <%= f.text_field :name, autofocus: true %>
+    </div>
+  </div>
+  
+  <div class="row">
+    <div class="col s12 input-field">
+      <%= f.label :email , 'E-mail' %><br />
+      <%= f.email_field :email, autofocus: true %>
+    </div>
   </div>
 
-  <div class="field">
-    <%= f.label :password %>
-    <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
-    <% end %><br />
-    <%= f.password_field :password, autocomplete: "off" %>
+  <div class="row">
+    <div class="col s12 input-field">
+      <%= f.label :password, 'Senha' %>
+      <% if @minimum_password_length %>
+        <em>(<%= @minimum_password_length %> characters minimum)</em>
+      <% end %><br />
+      <%= f.password_field :password, autocomplete: "off" %>
+    </div>
   </div>
 
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "off" %>
+  <div class="row">
+    <div class="col s12 input-field">
+      <%= f.label :password_confirmation, 'Confirme a senha' %><br />
+      <%= f.password_field :password_confirmation, autocomplete: "off" %>
+    </div>
   </div>
-
-  <div class="actions">
-    <%= f.submit "Sign up" %>
+  
+  <div class="row">
+    <div class="col s12 input-field">
+      <%= f.label :cpf, 'CPF' %><br />
+      <%= f.text_field :cpf, autocomplete: "off" %>
+    </div>
+  </div>
+  
+  <div class="row">
+    <div class="col s12 input-field">
+      <%= f.check_box :fb_token %>
+      <%= f.label :fb_token, 'Associar com o Facebook? ' %><br />
+    </div>
+  </div>
+    
+  <br>
+  <div class="row center">
+    <%= f.submit "Cadastrar", :class => 'btn blue' %>
   </div>
 <% end %>
-
-<%= render "devise/shared/links" %>
