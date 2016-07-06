@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
-  get 'home/index'
-
+  post 'admin/creator_permission_list/add'
+  
   devise_for :users, :controllers => { registrations: 'registrations' }
   
   authenticated :user do

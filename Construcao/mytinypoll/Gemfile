@@ -38,6 +38,8 @@ gem 'devise'
 gem 'font-awesome-sass', '~> 4.6.2'
 # Gem for user roles and abilities
 gem 'cancan'
+# Gem for manage user roles
+gem 'rolify'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
