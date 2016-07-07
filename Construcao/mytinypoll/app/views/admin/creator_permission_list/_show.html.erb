@@ -10,21 +10,22 @@
     		<tbody>
         		<% (::Admin::CreatorPermissionList.all).each do |req| %>
             		<tr>
-            			<td width="75%"><%= User.find(req.user_id).name %></td>
-            			<td width="25%">
+            			<td width="75%" class="center"><%= User.find(req.user_id).name %></td>
+            			<td width="25%" class="center">
             			    <!-- Approve user request -->
-            			    <%= button_to 'Aprovar',
-                                admin_creator_permission_list_approve_request_path(
+            			    <%= link_to admin_creator_permission_list_approve_request_path(
                                     :user_req_id => req.user_id),
-                                method: :post,
-                                :class => 'btn green' %>
+                                    :class => 'btn-floating green' do %>
+                                <i class="material-icons">done</i>
+                            <% end %>
                             
                             <!-- deny user request -->    
-            				<%= button_to 'Negar',
-                                admin_creator_permission_list_deny_request_path(
+            				<%= link_to admin_creator_permission_list_deny_request_path(
                                     :user_req_id => req.user_id),
-                                method: :post ,
-                                :class => 'btn red' %>
+                                    :class => 'btn-floating red' do %>
+                                <i class="material-icons">delete</i>
+                            <% end %>
+                            
             			</td>
             		</tr>
         		<% end %>
