@@ -11,13 +11,50 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160706012928) do
+ActiveRecord::Schema.define(version: 20160707172742) do
 
   create_table "creator_permission_lists", force: :cascade do |t|
     t.integer "user_id", limit: 4
   end
 
   add_index "creator_permission_lists", ["user_id"], name: "index_creator_permission_lists_on_user_id", unique: true, using: :btree
+
+  create_table "poll_discursive_answers", force: :cascade do |t|
+    t.integer "user_id",                 limit: 4
+    t.integer "poll_discursive_poll_id", limit: 4
+    t.string  "anwser",                  limit: 255
+  end
+
+  create_table "poll_discursive_polls", force: :cascade do |t|
+    t.integer  "user_id",        limit: 4
+    t.datetime "created_at"
+    t.datetime "expires_at"
+    t.string   "image_resource", limit: 255
+    t.string   "title",          limit: 255
+    t.string   "privacy",        limit: 255
+    t.string   "question",       limit: 255
+  end
+
+  create_table "poll_multiple_choice_answers", force: :cascade do |t|
+    t.integer "user_id",                         limit: 4
+    t.integer "poll_multiple_choice_poll_id",    limit: 4
+    t.integer "poll_multiple_choice_choices_id", limit: 4
+  end
+
+  create_table "poll_multiple_choice_choices", force: :cascade do |t|
+    t.integer "poll_multiple_choice_poll_id", limit: 4
+    t.string  "choice",                       limit: 255
+  end
+
+  create_table "poll_multiple_choice_polls", force: :cascade do |t|
+    t.integer  "user_id",        limit: 4
+    t.datetime "created_at"
+    t.datetime "expires_at"
+    t.string   "image_resource", limit: 255
+    t.string   "title",          limit: 255
+    t.string   "privacy",        limit: 255
+    t.string   "question",       limit: 255
+  end
 
   create_table "roles", force: :cascade do |t|
     t.string   "name",          limit: 255

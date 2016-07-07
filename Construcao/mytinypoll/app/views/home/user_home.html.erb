@@ -1,17 +1,21 @@
 <!-- Dropdown Structure -->
 <ul id="dropdown1" class="dropdown-content">
-    <li><a href="#!">one</a></li>
-    <li><a href="#!">two</a></li>
+    <li><a href="#!">Gerenciar Conta</a></li>
     <li class="divider"></li>
-    <li><%= link_to "Logout", destroy_user_session_path, method: :delete %></li>
+    <li><%= link_to "Sair", destroy_user_session_path, method: :delete %></li>
 </ul>
 <nav class="light-blue lighten-1" role="navigation">
     <div class="nav-wrapper">
-        <a href="#!" class="brand-logo">Logo</a>
+        <a href="/" class="brand-logo center">Logo</a>
+        <ul class="Left hide-on-med-and-down">
+            <li><a href="#!">Minhas Enquetes</a></li>
+            <li><a href="#!"><i class="material-icons right">search</i> Buscar</a></li>
+        </ul>
         <ul class="right hide-on-med-and-down">
             <li>
                 <a class="dropdown-button" data-activates="dropdown1">
-                    <i class="material-icons left">perm_identity</i><%= @current_user.name %> 
+                    <i class="material-icons left">perm_identity</i>
+                        <%= @current_user.name.split.first + ' ' + @current_user.name.split.last%>
                     <i class="material-icons right">arrow_drop_down</i>
                 </a>
             </li>
@@ -19,7 +23,7 @@
     </div>
 </nav>
   
-<h1> User logged!</h1>
+<h2>Bem vindo, <%= @current_user.name.split.first %>!</h2>
 <br>
 <br>
 <br>

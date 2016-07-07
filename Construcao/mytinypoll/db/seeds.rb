@@ -10,7 +10,7 @@ admin = User.create!(name: "Administrador",
                 email: "admin@admin.com",
                 password: "admin123",
                 password_confirmation: "admin123",
-                cpf: "12345678901",
+                cpf: "15434904761",
                 fb_token: '0'
             )
             
