@@ -1,26 +1,39 @@
-<!-- Dropdown Structure -->
-<ul id="dropdown1" class="dropdown-content">
-    <li><a href="#!">one</a></li>
-    <li><a href="#!">two</a></li>
-    <li class="divider"></li>
-    <li><%= link_to "Logout", destroy_user_session_path, method: :delete %></li>
-</ul>
-<nav class="light-blue lighten-1" role="navigation">
-    <div class="nav-wrapper">
-        <a href="#!" class="brand-logo">Logo</a>
-        <ul class="right hide-on-med-and-down">
-            <li>
-                <a class="dropdown-button" data-activates="dropdown1">
-                    <i class="material-icons left">perm_identity</i><%= @current_user.name %> 
-                    <i class="material-icons right">arrow_drop_down</i>
-                </a>
-            </li>
-        </ul>
+<%= render :layout => '/layouts/user_layout' do %>
+    <div class="container">
+        <div class="section">
+            <h4 class="header center">Bem-vindo, <%= @current_user.name.split.first %>!</h4>
+            <br><br><br>
+            <h5 class="header">O que você deseja fazer?</h5>
+            <br><br><br>
+            <div id="main_actions_user" class="row center">
+                <div class="col l4 s12">
+                    <%= link_to :create_poll,
+                        :class => 'btn-floating btn-large blue' do %>
+                        <i class="material-icons">add</i>
+                    <% end %>
+                    <span>Criar Enquete</span>
+                </div>
+                <div class="col l4 s12">
+                    <%= link_to root_url,
+                        :class => 'btn-floating btn-large blue' do %>
+                        <i class="material-icons">search</i>
+                    <% end %>
+                    <span>Buscar Enquetes</span>
+                </div>
+                <div class="col l4 s12">
+                    <%= link_to root_url,
+                        :class => 'btn-floating btn-large blue' do %>
+                        <i class="material-icons">assignment</i>
+                    <% end %>
+                    <span>Minhas Enquetes</span>
+                </div>
+            </div>
+        </div>
     </div>
-</nav>
-
-<h1> Admin logged!</h1>
-<br>
-<br>
-<%= render 'admin/creator_permission_list/show' do %>
+    <br><br>
+    <h5 class="header center orange-text">Solicitações para se tornar Criador de Enquetes</h5>
+    <br><br>
+    <%= render 'admin/creator_permission_list/show' do %>
+    <% end %>
+    <br><br>
 <% end %>

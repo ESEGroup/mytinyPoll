@@ -1,0 +1,49 @@
+<!-- Dropdown Structure -->
+<ul id="dropdown1" class="dropdown-content">
+    <li><a href="#!">Gerenciar Conta</a></li>
+    <li class="divider"></li>
+    <li><%= link_to "Sair", destroy_user_session_path, method: :delete %></li>
+</ul>
+<nav class="light-blue lighten-1" role="navigation">
+    <div class="nav-wrapper">
+        <a href="/" class="brand-logo center">Logo</a>
+        <ul class="Left hide-on-med-and-down">
+            <li><a href="#!">Minhas Enquetes</a></li>
+            <li><a href="#!"><i class="material-icons right">search</i> Buscar</a></li>
+        </ul>
+        <ul class="right hide-on-med-and-down">
+            <li>
+                <a class="dropdown-button" data-activates="dropdown1">
+                    <i class="material-icons left">perm_identity</i>
+                        <% if @current_user.name.split.length > 2 %>
+                            <%= @current_user.name.split.first + ' ' + @current_user.name.split.last%>
+                        <% else %>
+                            <%= @current_user.name %>
+                        <% end %>
+                    <i class="material-icons right">arrow_drop_down</i>
+                </a>
+            </li>
+        </ul>
+    </div>
+</nav>
+<br><br>
+<main>
+    <%= yield %>
+</main>
+<br><br>
+<footer class="page-footer orange">
+    <div class="container">
+        <div class="row">
+            <div id="about-footer" class="col l6 s12">
+                <h5 class="white-text">MyTinyPoll&trade;</h5>
+                <p class="grey-text text-lighten-4">Breve descrição aqui</p>
+            </div>
+        </div>
+    </div>
+    <div class="footer-copyright">
+        <div class="container center">
+            &copy; 2016 Copyright - All rights reserved to 
+            <a class="orange-text text-lighten-3" href="http://lens.cos.ufrj.br/es/">LENS-UFRJ&trade;</a>
+        </div>
+    </div>
+</footer>

@@ -10,9 +10,27 @@ admin = User.create!(name: "Administrador",
                 email: "admin@admin.com",
                 password: "admin123",
                 password_confirmation: "admin123",
-                cpf: "15434904761",
+                cpf: "21750859378",
                 fb_token: '0'
             )
             
 admin.add_role :creator
 admin.add_role :manager
+
+hguimaraes = User.create!(name: "Heitor Rodrigues Guimarães",
+                email: "hguimaraes@poli.ufrj.br",
+                password: "123456",
+                password_confirmation: "123456",
+                cpf: "15434904761",
+                fb_token: '1'
+            )
+            
+hguimaraes.add_role :creator
+
+testUser = User.create!(name: "John Tester",
+                email: "john@test.com",
+                password: "abc123",
+                password_confirmation: "abc123",
+                cpf: "69967423587",
+                fb_token: '0'
+            )

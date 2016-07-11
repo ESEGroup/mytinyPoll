@@ -23,13 +23,15 @@
     $('.button-collapse').sideNav();
 
     // Modal settings of unauthhome
-	$(document).ready(function(){
-    	// the "href" attribute of .modal-trigger must specify the modal ID that wants to be triggered
-    	$('.modal-trigger').leanModal();
-    	
-    	// Activate dropdown
-    	$(".dropdown-button").dropdown();
-	});
-
+  	$(document).on('page:change', function() {
+      // the "href" attribute of .modal-trigger must specify the modal ID that wants to be triggered
+      	$('.modal-trigger').leanModal();
+      	
+      	// Activate dropdown
+      	$(".dropdown-button").dropdown();
+      	
+      	// Materialize Tabs
+      	$('ul.tabs').tabs();
+    });
   }); // end of document ready
 })(jQuery); // end of jQuery name space

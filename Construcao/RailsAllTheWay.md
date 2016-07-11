@@ -23,4 +23,10 @@
     * For each user create a table in the database and corresponding model.
     * Create a single table in the database and for each user type create a model. This is called single table inheritance (STI).
 
-2.
+### Exemplos de CPF de um gerador aleatório na Internet:
+* http://www.geradorcpf.com/
+21750859378
+23241288706
+69967423587
+06752493170
+16239572810
