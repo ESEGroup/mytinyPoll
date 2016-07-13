@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class Poll::MultipleChoice::AnswerTest < ActiveSupport::TestCase
+class Poll::PollTest < ActiveSupport::TestCase
   # test "the truth" do
   #   assert true
   # end

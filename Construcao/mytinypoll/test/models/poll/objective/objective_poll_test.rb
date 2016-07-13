@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class Poll::Discursive::AnswerTest < ActiveSupport::TestCase
+class Poll::Objective::ObjectivePollTest < ActiveSupport::TestCase
   # test "the truth" do
   #   assert true
   # end
