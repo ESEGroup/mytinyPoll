@@ -20,19 +20,29 @@ ActiveRecord::Schema.define(version: 20160713010311) do
   add_index "creator_permission_lists", ["user_id"], name: "index_creator_permission_lists_on_user_id", unique: true, using: :btree
 
   create_table "poll_answers", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.integer  "user_id",           limit: 4
+    t.integer  "poll_polls_id",     limit: 4
+    t.string   "discursive_answer", limit: 255
+    t.string   "type",              limit: 255
+    t.datetime "created_at",                    null: false
+    t.datetime "updated_at",                    null: false
   end
 
   create_table "poll_objective_objective_options", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.integer  "poll_polls_id", limit: 4
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
   end
 
   create_table "poll_polls", force: :cascade do |t|
-    t.string   "type",       limit: 255
-    t.datetime "created_at",             null: false
-    t.datetime "updated_at",             null: false
+    t.string   "title",                               limit: 255
+    t.string   "privacy",                             limit: 255
+    t.string   "imagepath",                           limit: 255
+    t.datetime "expiration_date"
+    t.string   "type",                                limit: 255
+    t.integer  "poll_objective_objective_options_id", limit: 4
+    t.datetime "created_at",                                      null: false
+    t.datetime "updated_at",                                      null: false
   end
 
   create_table "roles", force: :cascade do |t|

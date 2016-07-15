@@ -12,13 +12,48 @@
         </div>
         <div class="container">
             <br><br>
-            <div id="multiplechoice" class="col s12">
-                Test 1
-            </div>
-            <div id="discursive" class="col s12">
-                Test 2
-            </div>
-            <br><br>
+            <%= form_for :poll_poll do |f| %>
+                <div class="row">
+                    <div class="col s12 input-field">
+                      <%= f.label :title , 'Título' %><br />
+                      <%= f.text_field :title %>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col s12 input-field">
+                        <div class="file-field input-field">
+                            <div class="btn blue">
+                                <%= f.file_field :imagepath, :class => 'file-field' %>
+                                <span>Imagem</span>
+                                <input type="file">
+                            </div>
+                            <div class="file-path-wrapper">
+                                <input class="file-path validate" type="text">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col s12 input-field">
+                        <%= f.check_box :privacy %>
+                        <%= f.label :privacy, 'Enquete Privada? ' %><br />
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col s12 input-field">
+                        <input type="date" class="datepicker">
+                    </div>
+                </div>
+                
+                <br><br>
+                <div id="multiplechoice" class="col s12">
+                    Test 1
+                </div>
+                <div id="discursive" class="col s12">
+                    Test 2
+                </div>
+                <br><br>
+            <% end %>
         </div>
     </div>
 </div>

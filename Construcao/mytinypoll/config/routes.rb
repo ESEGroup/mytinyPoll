@@ -10,6 +10,9 @@ Rails.application.routes.draw do
     get 'search_poll', to: 'home#search_poll', as: :search_poll
     get 'my_polls', to: 'home#my_polls', as: :my_polls
     
+    # Poll routes
+    get 'create_discursive_poll', to: 'poll/poll#create_discursive_poll', as: :create_discursive_poll
+    
     # Admin routes
     get 'admin/creator_permission_list/approve_request'
     get 'admin/creator_permission_list/deny_request'
