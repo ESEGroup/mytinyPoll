@@ -3,7 +3,10 @@ class CreatePollPolls < ActiveRecord::Migration
     create_table :poll_polls do |t|
       t.string :title
       t.string :privacy
+      t.string :question
+      t.datetime :deadline
       t.string :type
+      t.references :user
       t.timestamps null: false
     end
   end

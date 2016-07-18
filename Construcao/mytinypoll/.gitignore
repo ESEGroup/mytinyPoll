@@ -15,3 +15,6 @@
 /log/*
 !/log/.keep
 /tmp
+
+# Do not send uploaded images
+/public/system/*

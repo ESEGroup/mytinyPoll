@@ -12,51 +12,51 @@
         </div>
         <div class="container">
             <br><br>
-            <%= form_for :poll, :url => create_discursive_poll_path do |f| %>
+            <%= form_for :poll, :url => new_poll_path, :html => { multipart: true } do |f| %>
                 <div class="row">
                     <div class="col s12 input-field">
-                      <%= f.label :title , 'Título' %><br />
                       <%= f.text_field :title %>
+                      <%= f.label :title , 'Título' %><br />
                     </div>
                 </div>
                 <div class="row">
                     <div class="col s12 input-field">
-                        <div class="file-field input-field">
-                            <div class="btn blue">
-                                <%= f.file_field :imagepath, :class => 'file-field' %>
-                                <span>Imagem</span>
-                                <input type="file">
-                            </div>
-                            <div class="file-path-wrapper">
-                                <input class="file-path validate" type="text">
-                            </div>
-                        </div>
+                        <%= f.file_field :poll_avatar %>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col s12 input-field">
                         <%= f.check_box :privacy %>
-                        <%= f.label :privacy, 'Enquete Privada? ' %><br />
+                        <%= f.label :privacy, 'Enquete Privada?' %><br />
                     </div>
                 </div>
                 <div class="row">
                     <div class="col s12 input-field">
-                        <input type="date" class="datepicker">
+                        <%= f.text_field :deadline, class:"datepicker" %>
+                        <%= f.label :deadline, 'Data de expiração' %><br />
                     </div>
                 </div>
                 <div class="row">
                     <div class="input-field col s12">
-                        <textarea id="textarea1" class="materialize-textarea" length="120"></textarea>
-                        <label for="textarea1">Textarea</label>
+                        <%= f.text_area :question, :length => 300, :class => "materialize-textarea" %>
+                        <%= f.label :question , 'Pergunta' %><br />
                     </div>
                 </div>
-                <%= f.submit %>
                 <br><br>
                 <div id="multiplechoice" class="col s12">
-                    Test 1
+                    <div class="row center">
+                        <div class="input-field col s12">
+                            <%= f.submit 'Enviar', :name => 'objpoll', :class => "btn blue" %>
+                        </div>
+                    </div>
                 </div>
+                
                 <div id="discursive" class="col s12">
-                    Test 2
+                    <div id="multiplechoice" class="col s12">
+                        <div class="row center">
+                            <%= f.submit 'Enviar', :name => 'discpoll', :class => "btn blue" %>
+                        </div>
+                    </div>
                 </div>
                 <br><br>
             <% end %>
