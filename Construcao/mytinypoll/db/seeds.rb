@@ -33,4 +33,9 @@ testUser = User.create!(name: "John Tester",
                 password_confirmation: "abc123",
                 cpf: "69967423587",
                 fb_token: '0'
-            )
+           )
+           
+=begin
+poll = ::Poll::Poll.new({"title" => "Hello TinyPoll 02", "privacy" => "0"})
+poll.save
+=end

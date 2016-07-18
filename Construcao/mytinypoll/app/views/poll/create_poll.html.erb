@@ -12,7 +12,7 @@
         </div>
         <div class="container">
             <br><br>
-            <%= form_for :poll_poll do |f| %>
+            <%= form_for :poll, :url => create_discursive_poll_path do |f| %>
                 <div class="row">
                     <div class="col s12 input-field">
                       <%= f.label :title , 'Título' %><br />
@@ -44,7 +44,13 @@
                         <input type="date" class="datepicker">
                     </div>
                 </div>
-                
+                <div class="row">
+                    <div class="input-field col s12">
+                        <textarea id="textarea1" class="materialize-textarea" length="120"></textarea>
+                        <label for="textarea1">Textarea</label>
+                    </div>
+                </div>
+                <%= f.submit %>
                 <br><br>
                 <div id="multiplechoice" class="col s12">
                     Test 1

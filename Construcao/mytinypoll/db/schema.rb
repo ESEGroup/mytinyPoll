@@ -35,14 +35,11 @@ ActiveRecord::Schema.define(version: 20160713010311) do
   end
 
   create_table "poll_polls", force: :cascade do |t|
-    t.string   "title",                               limit: 255
-    t.string   "privacy",                             limit: 255
-    t.string   "imagepath",                           limit: 255
-    t.datetime "expiration_date"
-    t.string   "type",                                limit: 255
-    t.integer  "poll_objective_objective_options_id", limit: 4
-    t.datetime "created_at",                                      null: false
-    t.datetime "updated_at",                                      null: false
+    t.string   "title",      limit: 255
+    t.string   "privacy",    limit: 255
+    t.string   "type",       limit: 255
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
   end
 
   create_table "roles", force: :cascade do |t|
