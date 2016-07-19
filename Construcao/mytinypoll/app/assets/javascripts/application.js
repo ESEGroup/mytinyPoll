@@ -21,7 +21,10 @@
   $(function(){
 
     $('.button-collapse').sideNav();
-
+    
+    // Make the page always start in top, even with renders inside
+    $("html,body").animate({ scrollTop: 0 }, "quick");
+    
     // Modal settings of unauthhome
   	$(document).on('page:change', function() {
       // the "href" attribute of .modal-trigger must specify the modal ID that wants to be triggered
