@@ -15,11 +15,7 @@
             <li>
                 <a class="dropdown-button" data-activates="dropdown1">
                     <i class="material-icons left">perm_identity</i>
-                        <% if @current_user.name.split.length > 2 %>
-                            <%= @current_user.name.split.first + ' ' + @current_user.name.split.last%>
-                        <% else %>
-                            <%= @current_user.name %>
-                        <% end %>
+                        <%= user_display_name %>
                     <i class="material-icons right">arrow_drop_down</i>
                 </a>
             </li>
