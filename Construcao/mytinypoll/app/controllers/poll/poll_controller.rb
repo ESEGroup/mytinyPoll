@@ -10,6 +10,6 @@ class Poll::PollController < ApplicationController
     
     private
     def poll_params
-        params.require(:poll).permit(:title, :privacy, :poll_avatar, :question, :deadline)
+        params.require(:poll).permit(:title, :privacy, :poll_avatar, :question, :deadline, :user_id)
     end
 end

@@ -46,6 +46,7 @@
                 <div id="multiplechoice" class="col s12">
                     <div class="row center">
                         <div class="input-field col s12">
+                            <%= f.hidden_field :user_id, :value => current_user.id %>
                             <%= f.submit 'Enviar', :name => 'objpoll', :class => "btn blue" %>
                         </div>
                     </div>
