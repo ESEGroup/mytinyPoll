@@ -44,19 +44,33 @@
                 </div>
                 <br><br>
                 <div id="multiplechoice" class="col s12">
-                    <div class="row center">
-                        <div class="input-field col s12">
-                            <%= f.hidden_field :user_id, :value => current_user.id %>
+                        <h4 class="header center blue-text">Insira as alternativas</h4>
+                        <br><br>
+                        <% (1..6).step(2).each do |i| %>
+                            <div class="row">
+                                <div class="input-field col s6">
+                                    <i class="material-icons prefix">question_answer</i>
+                                    <%= f.text_area :option, :multiple => true,
+                                        :length => 100, :class => "materialize-textarea" %>
+                                    <%= f.label :option , 'Alternativa ' + i.to_s %><br />
+                                </div>
+                                <div class="input-field col s6">
+                                    <i class="material-icons prefix">question_answer</i>
+                                    <%= f.text_area :option, :multiple => true,
+                                        :length => 100, :class => "materialize-textarea" %>
+                                    <%= f.label :option , 'Alternativa ' + (i+1).to_s %><br />
+                                </div>
+                            </div>
+                            <br>
+                        <% end %>
+                        <div class="row center">
                             <%= f.submit 'Enviar', :name => 'objpoll', :class => "btn blue" %>
                         </div>
-                    </div>
                 </div>
                 
                 <div id="discursive" class="col s12">
-                    <div id="multiplechoice" class="col s12">
-                        <div class="row center">
-                            <%= f.submit 'Enviar', :name => 'discpoll', :class => "btn blue" %>
-                        </div>
+                    <div class="row center">
+                        <%= f.submit 'Enviar', :name => 'discpoll', :class => "btn blue" %>
                     </div>
                 </div>
                 <br><br>
