@@ -1,23 +1,8 @@
 class Poll::PollController < ApplicationController
     def new_poll
-        if params[:discpoll]
-            # Create the Discursive Poll (In the table the type will be "null")
-            ::Poll::Poll.create!(poll_params)
-        else
-            # Create the Objective Poll
-            obj_poll = ::Poll::Objective::ObjectivePoll.create(poll_params)
-            
-            # Filter only the non-empty fields for options
-            options = multiple_choice_params[:multiple_choice].reject!(&:empty?)
-            
-            options.each  do |val|
-                # Create the options of the Objective Poll
-                obj_option = ::Poll::Objective::ObjectiveOption.new(
-                    :alternative => val)
-                obj_option.poll_polls = obj_poll
-                obj_option.save
-            end
-        end
+        poll = ::Poll::Poll.new
+        poll.create_poll(params[:discpoll], poll_params,
+            multiple_choice_params[:multiple_choice])
         redirect_to root_path
     end
     
