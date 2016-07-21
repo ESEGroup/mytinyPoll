@@ -50,15 +50,15 @@
                             <div class="row">
                                 <div class="input-field col s6">
                                     <i class="material-icons prefix">question_answer</i>
-                                    <%= f.text_area :option, :multiple => true,
+                                    <%= f.text_area :multiple_choice, :multiple => true,
                                         :length => 100, :class => "materialize-textarea" %>
-                                    <%= f.label :option , 'Alternativa ' + i.to_s %><br />
+                                    <%= f.label :multiple_choice , 'Alternativa ' + i.to_s %><br />
                                 </div>
                                 <div class="input-field col s6">
                                     <i class="material-icons prefix">question_answer</i>
-                                    <%= f.text_area :option, :multiple => true,
+                                    <%= f.text_area :multiple_choice, :multiple => true,
                                         :length => 100, :class => "materialize-textarea" %>
-                                    <%= f.label :option , 'Alternativa ' + (i+1).to_s %><br />
+                                    <%= f.label :multiple_choice , 'Alternativa ' + (i+1).to_s %><br />
                                 </div>
                             </div>
                             <br>

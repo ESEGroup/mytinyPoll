@@ -30,8 +30,9 @@ ActiveRecord::Schema.define(version: 20160718184508) do
 
   create_table "poll_objective_objective_options", force: :cascade do |t|
     t.integer  "poll_polls_id", limit: 4
-    t.datetime "created_at",              null: false
-    t.datetime "updated_at",              null: false
+    t.string   "alternative",   limit: 255
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
   end
 
   create_table "poll_polls", force: :cascade do |t|
