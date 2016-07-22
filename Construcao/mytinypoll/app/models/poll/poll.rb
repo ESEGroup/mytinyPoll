@@ -17,18 +17,23 @@ class Poll::Poll < ActiveRecord::Base
             self.attributes = poll_config
             self.save
         else
-            # Create the Objective Poll
-            obj_poll = @@obj_poll.create(poll_config)
-            
-            # Filter only the non-empty fields for options in place
+            #  Create the Objective Poll and Filter only the non-empty 
+            # fields for options in place
+            obj_poll = @@obj_poll.new(poll_config)
             options.reject!(&:empty?)
             
-            # Create the options and save in the DB
-            options.each  do |val|
-                # Create the options of the Objective Poll
-                obj_option = @@obj_option.new(:alternative => val)
-                obj_option.poll_polls = obj_poll
-                obj_option.save
+            #  Check if the object can be saved and the options input has at 
+            # least two options
+            if obj_poll.save and options.length >= 2
+                # Create the options and save in the DB
+                options.each  do |val|
+                    # Create the options of the Objective Poll
+                    obj_option = @@obj_option.new(:alternative => val)
+                    obj_option.poll_polls = obj_poll
+                    obj_option.save
+                end
+            else
+                return false
             end
         end
     end

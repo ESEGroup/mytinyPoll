@@ -1,9 +1,16 @@
 class Poll::PollController < ApplicationController
     def new_poll
         poll = ::Poll::Poll.new
-        poll.create_poll(params[:discpoll], poll_params,
+        create_poll = poll.create_poll(params[:discpoll], poll_params,
             multiple_choice_params[:multiple_choice])
-        redirect_to root_path
+        
+        if create_poll
+            redirect_to invite_people_path    
+        else
+            redirect_to :create_poll
+        end
+        
+        
     end
     
     private

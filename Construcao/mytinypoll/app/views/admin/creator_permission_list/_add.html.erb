@@ -2,6 +2,7 @@
     <div class="row">
         <%= button_to 'Quero me tornar um criador',
             admin_creator_permission_list_add_path,
+            params: {:user_req_id => current_user.id },
             method: :post ,
             :class => 'btn orange'%>
     </div>

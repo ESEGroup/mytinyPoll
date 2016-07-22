@@ -1,4 +1,9 @@
 <%= render :layout => '/layouts/user_layout' do %>
+    <% if flash[:alert] %>
+        <script type="text/javascript">
+            Materialize.toast('<%= flash[:alert] %>', 5000)
+        </script>
+    <% end %>
     <div class="container">
         <div class="section">
             <h4 class="header center">Bem-vindo, <%= @current_user.name.split.first %>!</h4>

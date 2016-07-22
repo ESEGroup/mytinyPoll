@@ -6,10 +6,13 @@ class Admin::CreatorPermissionListController < ApplicationController
     # Add your own ID in the table is the only method accessible to all roles
     def add
         cpl = ::Admin::CreatorPermissionList.new
-        cpl.user_id = current_user.id
-        cpl.save
+        insert_cpl = cpl.add_to_creator_perm_list(params[:user_req_id])
+        if insert_cpl
+            flash[:alert] = "Sua solicitação foi enviada ao Gerente"    
+        else
+            flash[:alert] = "Você já solicitou esta permissão, por favor aguarde"
+        end
         
-        flash[:alert] = "Inserted in the CreatorPermissionList"
         redirect_to root_path
     end
     
@@ -31,6 +34,8 @@ class Admin::CreatorPermissionListController < ApplicationController
         cpl = ::Admin::CreatorPermissionList.find_by_user_id(user_req_id)
         cpl.destroy
         
+        flash[:alert] = "O usuário agora é um Criador de Enquetes"    
+        
         # Redirect to admin_root
         redirect_to root_path
     end
@@ -44,6 +49,8 @@ class Admin::CreatorPermissionListController < ApplicationController
         # Delete that user from the Creator Permission List
         cpl = ::Admin::CreatorPermissionList.find_by_user_id(user_req_id)
         cpl.destroy
+        
+        flash[:alert] = "Pedido negado com sucesso"    
         
         # Redirect to admin_root
         redirect_to root_path
