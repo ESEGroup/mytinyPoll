@@ -35,17 +35,18 @@ ActiveRecord::Schema.define(version: 20160718184508) do
   end
 
   create_table "poll_polls", force: :cascade do |t|
-    t.string   "title",                    limit: 255
-    t.string   "privacy",                  limit: 255
-    t.string   "question",                 limit: 255
-    t.datetime "deadline"
-    t.string   "type",                     limit: 255
-    t.integer  "user_id",                  limit: 4
-    t.datetime "created_at",                           null: false
-    t.datetime "updated_at",                           null: false
-    t.string   "poll_avatar_file_name",    limit: 255
-    t.string   "poll_avatar_content_type", limit: 255
-    t.integer  "poll_avatar_file_size",    limit: 4
+    t.string   "title",                               limit: 255
+    t.string   "privacy",                             limit: 255
+    t.string   "imagepath",                           limit: 255
+    t.string   "question",                            limit: 255
+    t.datetime "expiration_date"
+    t.string   "type",                                limit: 255
+    t.integer  "poll_objective_objective_options_id", limit: 4
+    t.datetime "created_at",                                      null: false
+    t.datetime "updated_at",                                      null: false
+    t.string   "poll_avatar_file_name",               limit: 255
+    t.string   "poll_avatar_content_type",            limit: 255
+    t.integer  "poll_avatar_file_size",               limit: 4
     t.datetime "poll_avatar_updated_at"
   end
 
