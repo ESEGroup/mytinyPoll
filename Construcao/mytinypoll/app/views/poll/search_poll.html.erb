@@ -1,0 +1,27 @@
+<%= render :layout => '/layouts/user_layout' do %>
+    <br><br>
+    <div class="container">
+        <h5 class="header center blue-text"> Procure por uma enquete </h5>
+        <br><br>
+        <div class="row">
+            <%= form_for :query_poll, :url => query_poll_path, :html => { multipart: true } do |f| %>
+                <div class="row">
+                    <div class="input-field col s8">
+                        <i class="material-icons prefix">search</i>
+                        <%= f.text_field :user_input %>
+                        <%= f.label :user_input , 'Digite aqui' %><br />
+                    </div>
+                    <div class="input-field col s4">
+                        <%= f.select :search_type, options_for_select(
+                            [['Autor', 1], ['Título', 2], ['Pergunta', 3]])
+                        %>
+                    </div>
+                </div>
+                <div class="row center">
+                    <%= f.submit 'Buscar', :class => "btn blue" %>
+                </div>
+            <% end %>
+        </div>
+    </div>
+    <br><br>
+<% end %>

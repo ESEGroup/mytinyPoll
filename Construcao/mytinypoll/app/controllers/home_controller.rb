@@ -20,8 +20,14 @@ class HomeController < ApplicationController
   end
   
   def search_poll
+    if current_user
+      render 'poll/search_poll'
+    end
   end
   
   def my_polls
+    if current_user
+      render 'poll/my_poll'
+    end
   end
 end

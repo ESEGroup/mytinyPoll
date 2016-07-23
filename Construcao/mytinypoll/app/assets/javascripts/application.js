@@ -27,15 +27,19 @@
     
     // Modal settings of unauthhome
   	$(document).on('page:change', function() {
-      // the "href" attribute of .modal-trigger must specify the modal ID that wants to be triggered
+        //  The "href" attribute of .modal-trigger must specify the modal ID 
+        // that wants to be triggered
       	$('.modal-trigger').leanModal();
       	
+      	//  Materialize Select
+      	 $('select').material_select();
       	// Activate dropdown
       	$(".dropdown-button").dropdown();
       	
       	// Materialize Tabs
       	$('ul.tabs').tabs();
       	
+      	// Materialize DatePicker
       	$('.datepicker').pickadate({
           selectMonths: true,
           selectYears: 15,

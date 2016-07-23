@@ -3,6 +3,7 @@
 # to insert a user in the CPL and let the manager be able to administrate this.
 
 class Admin::CreatorPermissionListController < ApplicationController
+    
     # Add your own ID in the table is the only method accessible to all roles
     def add
         cpl = ::Admin::CreatorPermissionList.new

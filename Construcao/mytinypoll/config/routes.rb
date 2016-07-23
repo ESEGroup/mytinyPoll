@@ -12,6 +12,7 @@ Rails.application.routes.draw do
     
     # Poll routes
     post 'new_poll', to: 'poll/poll#new_poll', as: :new_poll
+    post 'query_poll', to: 'poll/poll#query_poll', as: :query_poll
     
     # Admin routes
     get 'admin/creator_permission_list/approve_request'

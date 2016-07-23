@@ -1,4 +1,5 @@
 class Poll::PollController < ApplicationController
+    
     def new_poll
         poll = ::Poll::Poll.new
         create_poll = poll.create_poll(params[:discpoll], poll_params,
@@ -9,8 +10,11 @@ class Poll::PollController < ApplicationController
         else
             redirect_to :create_poll
         end
-        
-        
+    end
+    
+    def query_poll
+        puts "RECEIVED PARAMS: " + query_params.to_s
+        render :json => "SEARCH OK"
     end
     
     private
@@ -21,5 +25,9 @@ class Poll::PollController < ApplicationController
     
         def multiple_choice_params
             params.require(:poll).permit(:multiple_choice => [])
+        end
+        
+        def query_params
+            params.require(:query_poll).permit(:user_input, :search_type)
         end
 end
