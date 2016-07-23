@@ -38,6 +38,9 @@ class Poll::Poll < ActiveRecord::Base
         end
     end
     
+    def self.search_poll(query)
+    end
+    
     private
         @@obj_poll = ::Poll::Objective::ObjectivePoll
         @@obj_option = ::Poll::Objective::ObjectiveOption

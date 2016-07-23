@@ -1,3 +1,5 @@
+# Description:
+# => Validator for CPF entry. Check if the user has entered a valid CPF or not
 class CpfValidator < ActiveModel::EachValidator
     def validate_each(record, attribute, value)
         unless check_cpf(value)
@@ -6,7 +8,6 @@ class CpfValidator < ActiveModel::EachValidator
     end
   
     def check_cpf(cpf)
-        puts "#{cpf}"
         return false if cpf.nil?
         if cpf.length == 11
             s_cpf = String.try_convert(cpf)
@@ -18,7 +19,6 @@ class CpfValidator < ActiveModel::EachValidator
                         s_cpf[5].to_i*6+s_cpf[6].to_i*5+s_cpf[7].to_i*4+s_cpf[8].to_i*3+s_cpf[9].to_i*2
                 result = (10*sum)%11
                 if result == s_cpf[10].to_i # CPF validado
-                    puts "#{cpf}"
                     return true 
                 end
             end

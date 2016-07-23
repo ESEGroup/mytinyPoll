@@ -1,3 +1,6 @@
+# Description:
+# => Controler for Devise registration. This class extends the default 
+# RegistrationsController of Devise to the deal with strong parameters
 class RegistrationsController < Devise::RegistrationsController
     
     private

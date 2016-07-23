@@ -1,35 +1,39 @@
  <div class="container">
-     <div class="col s12">
-    	<table class="highlight responsive-table">
-    	    <thead>
-    		    <tr>
-    			    <th class="center">Usuário</th>
-    				<th class="center">Operações</th>
-    			</tr>
-            </thead>
-    		<tbody>
-        		<% creator_request.each do |req| %>
-            		<tr>
-            			<td width="75%" class="center"><%= User.find(req.user_id).name %></td>
-            			<td width="25%" class="center">
-            			    <!-- Approve user request -->
-            			    <%= link_to admin_creator_permission_list_approve_request_path(
-                                    :user_req_id => req.user_id),
-                                    :class => 'btn-floating green' do %>
-                                <i class="material-icons">done</i>
-                            <% end %>
-                            
-                            <!-- deny user request -->    
-            				<%= link_to admin_creator_permission_list_deny_request_path(
-                                    :user_req_id => req.user_id),
-                                    :class => 'btn-floating red' do %>
-                                <i class="material-icons">delete</i>
-                            <% end %>
-                            
-            			</td>
-            		</tr>
-        		<% end %>
-    	    </tbody>
-        </table>
+    <div class="col s12">
+        <% if !creator_request.empty? %>
+            <h5 class="header center orange-text">Solicitações para se tornar Criador de Enquetes</h5>
+            <br><br>
+            <table class="highlight responsive-table">
+        	    <thead>
+        		    <tr>
+        			    <th class="center">Usuário</th>
+        				<th class="center">Operações</th>
+        			</tr>
+                </thead>
+        		<tbody>
+            		<% creator_request.each do |req| %>
+                		<tr>
+                			<td width="75%" class="center"><%= User.find(req.user_id).name %></td>
+                			<td width="25%" class="center">
+                			    <!-- Approve user request -->
+                			    <%= link_to admin_creator_permission_list_approve_request_path(
+                                        :user_req_id => req.user_id),
+                                        :class => 'btn-floating green' do %>
+                                    <i class="material-icons">done</i>
+                                <% end %>
+                                
+                                <!-- deny user request -->    
+                				<%= link_to admin_creator_permission_list_deny_request_path(
+                                        :user_req_id => req.user_id),
+                                        :class => 'btn-floating red' do %>
+                                    <i class="material-icons">delete</i>
+                                <% end %>
+                                
+                			</td>
+                		</tr>
+            		<% end %>
+        	    </tbody>
+            </table>
+        <% end %>
     </div>
 </div>
