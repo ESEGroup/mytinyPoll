@@ -17,8 +17,19 @@ class Poll::PollController < ApplicationController
     
     # Method to search polls
     def query_poll
-        puts "RECEIVED PARAMS: " + query_params.to_s
-        render :json => "SEARCH OK"
+        # Search for the poll
+        search_result = ::Poll::Poll.search_poll(
+            query_params[:user_input],
+            query_params[:search_type],
+            current_user
+        )
+        
+        puts "SEARCH_RESULT = " + search_result.to_s
+        # Get the result and show
+        search_result.each do |results|
+            puts "TITLE RESULT : " + results.title.to_s
+        end
+        render :json => search_result
     end
     
     # Strong parameter methods

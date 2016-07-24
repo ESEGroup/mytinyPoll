@@ -6,7 +6,7 @@ class CreatePollPolls < ActiveRecord::Migration
       t.string :question
       t.datetime :deadline
       t.string :type
-      t.references :user
+      t.belongs_to :user
       t.timestamps null: false
     end
   end
