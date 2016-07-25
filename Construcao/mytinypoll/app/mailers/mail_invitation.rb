@@ -5,7 +5,7 @@ class MailInvitation < ApplicationMailer
         Rails.logger.debug("debug:: dentro do email")
         #mail(subject: 'We are inviting you to our poll')
         @url = 'http//www.gmail.com'
-        mail(to: 'beremisinistro@gmail.com', subject: 'We are inviting you to our poll')
+        mail(to: 'beremizsinistro@gmail.com', subject: 'We are inviting you to our poll')
         Rails.logger.debug("debug:: depois do email")
     end
 end

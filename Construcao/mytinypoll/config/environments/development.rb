@@ -41,25 +41,25 @@ Rails.application.configure do
   
   #Mail Configuration
   
-  config.action_mailer.default_url_options = {:host => 'https://esoo-eduardo-beremiz.c9users.io/'}
-  config.action_mailer.delivery_method = :smtp
-  config.action_mailer.perform_deliveries = true
-  
-  #ActionMailer::Base.default_content_type = "text/html"
-  
-  config.action_mailer.smtp_settings = {
-    adress:              'smtp.gmail.com',
-    port:                  587,
-    domain:               'gmail.com',
-    user_name:            'mytinypoll@gmail.com',
-    password:             'engenhariaECI',
-    authentication:       'login',
-    enable_starttls_auto: true,
-    ssl:                  false
-  }
+config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
   
   
   # Devise auth to send emails to users
   config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
   Paperclip.options[:command_path] = "/usr/bin/"
+
+  config.action_mailer.raise_delivery_errors = true
+  config.action_mailer.perform_deliveries = true 
+  ActionMailer::Base.delivery_method = :smtp
+  ActionMailer::Base.smtp_settings = {
+     :address => "smtp.gmail.com",
+     :port => 587,
+     :domain => "gmail.com",
+     :authentication => 'login',
+     :user_name => "mytinypoll@gmail.com",
+     :password => "engenhariaECI",
+     :enable_starttls_auto => true
+  }
+  
+
 end
