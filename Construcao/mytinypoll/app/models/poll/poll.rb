@@ -71,7 +71,8 @@ class Poll::Poll < ActiveRecord::Base
                         end
                 end
             else
-                self.all
+                tmp_result = self.all
+                query_result << tmp_result.take(tmp_result.length)
             end
             
         # Any user that hasn't a manager role    
@@ -97,7 +98,8 @@ class Poll::Poll < ActiveRecord::Base
                 end
             else
                 # If empty, return all the polls
-                self.where(:privacy => '0')
+                tmp_result = self.where(:privacy => '0')
+                query_result << tmp_result.take(tmp_result.length)
             end
         end
         
