@@ -5,11 +5,12 @@ class Poll::PollController < ApplicationController
     # Method to create a new poll
     def new_poll
         poll = ::Poll::Poll.new
-        create_poll = poll.create_poll(params[:discpoll], poll_params,
+        create_poll, poll_id = poll.create_poll(params[:discpoll], poll_params,
             multiple_choice_params[:multiple_choice])
         
-        if create_poll
-            redirect_to invite_people_path    
+        if create_poll and current_user
+            session[:poll_id] = poll_id
+            render 'poll/invite_people'    
         else
             redirect_to :create_poll
         end

@@ -14,6 +14,8 @@ class Poll::Poll < ActiveRecord::Base
     # => Method to create a new poll (Discursive and Objective) and handle
     # possible erros.
     def create_poll(is_discursive, poll_config, options)
+        return_state = true
+        
         if is_discursive
             self.attributes = poll_config
             self.save
@@ -34,9 +36,11 @@ class Poll::Poll < ActiveRecord::Base
                     obj_option.save
                 end
             else
-                return false
+                return_state = false
             end
         end
+        
+        return return_state, self.id
     end
     
     # Description:
@@ -47,16 +51,26 @@ class Poll::Poll < ActiveRecord::Base
         
         # For User with manager role
         if user.has_role? :manager
-            puts "IT IS A MANAGER IN HERE"
             if !query.empty?
+                query = query.split
+                
                 case search_type 
                     when "0"
-                        self.all
+                        query.each do |word|
+                            tmp_result = self.where(
+                                "LOWER(title) LIKE LOWER(?)", "%#{word}%"    
+                            )
+                            query_result << tmp_result.take(tmp_result.length)
+                        end
                     when "1"
-                        self.all
+                        query.each do |word|
+                            tmp_result = self.where(
+                                "LOWER(question) LIKE LOWER(?)", "%#{word}%"
+                            )
+                            query_result << tmp_result.take(tmp_result.length)
+                        end
                 end
             else
-                puts "EMPTY QUERY"
                 self.all
             end
             
@@ -82,7 +96,7 @@ class Poll::Poll < ActiveRecord::Base
                         end
                 end
             else
-                puts "EMPTY QUERY"
+                # If empty, return all the polls
                 self.where(:privacy => '0')
             end
         end

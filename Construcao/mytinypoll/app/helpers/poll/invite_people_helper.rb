@@ -1,0 +1,2 @@
+module Poll::InvitePeopleHelper
+end

@@ -1,0 +1,32 @@
+<%= render :layout => '/layouts/user_layout' do %>
+<div class="container">
+    <br><br>
+    <h2 class="header center orange-text">Convidar pessoas para responder</h2>
+    <br>
+    <p>
+        Digite aqui os e-mails para convidar pessoas para responderem sua enquete!<br>
+        <i>Nota: Separe os E-mails com "ponto e vírgula"(;) </i>
+    </p>
+    <br><br>
+    <%= form_for :invite_people, :url => invite_people_path,
+        :html => { multipart: true } do |f| %>
+        <div class="row">
+            <div class="input-field col s12">
+                <%= f.text_area :emails, :class => "materialize-textarea" %>
+                <%= f.label :emails , 'Lista de Emails' %><br />
+            </div>
+        </div>
+        <div class="row center">
+            <div class="input-field col s6">
+                <%= f.submit 'Enviar', :class => "btn blue" %>
+            </div>
+            <div class="input-field col s6">
+                <%= link_to root_path,
+                    :class => 'btn blue' do %>
+                    <span>Pular</span>
+                <% end %>
+            </div>
+        </div>
+    <% end %>
+</div>
+<% end %>
