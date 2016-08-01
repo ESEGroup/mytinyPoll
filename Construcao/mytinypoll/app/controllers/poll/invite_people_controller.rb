@@ -6,7 +6,8 @@ class Poll::InvitePeopleController < ApplicationController
             email_list)
             
         if invite
-            flash[:alert] = "Notificação sobre a Enquete enviada com sucesso"
+            flash[:alert] = 'E-mail solicitando Respostas para a Enquete'\
+                'foi enviado com sucesso'
         else
            flash[:alert] = 'Erro ao enviar E-mail. Por favor tente novamente'\
             'ou entre em contato com um administrador' 

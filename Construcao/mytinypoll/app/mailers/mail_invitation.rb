@@ -1,11 +1,7 @@
 class MailInvitation < ApplicationMailer
     default from: 'mytinypoll@gmail.com'
-    default to: 'beremizsinistro@gmail.com'
-    def creator_permission_email()
-        Rails.logger.debug("debug:: dentro do email")
-        #mail(subject: 'We are inviting you to our poll')
+    def invitation_email(email)
         @url = 'http//www.gmail.com'
-        mail(to: 'beremizsinistro@gmail.com', subject: 'We are inviting you to our poll')
-        Rails.logger.debug("debug:: depois do email")
+        mail(to: '', bcc: [email], subject: 'Olá, você foi convidado para responder uma Enquete')
     end
 end
