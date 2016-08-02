@@ -29,9 +29,12 @@ class Poll::PollController < ApplicationController
         render 'poll/search_poll'
     end
     
+    # Method to render a poll
     def show
         @poll = ::Poll::Poll.find(params[:id])
-        render :json => @poll
+        if current_user
+            render 'poll/show_poll'
+        end
     end
     
     # Strong parameter methods

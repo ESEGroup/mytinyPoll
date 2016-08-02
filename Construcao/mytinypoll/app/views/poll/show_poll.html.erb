@@ -1,0 +1,34 @@
+<%= render :layout => '/layouts/user_layout' do %>
+    <div class="container">
+        <div class="row">
+            <h4 class="header center blue-text"><%= @poll.title %></h4>
+        </div>
+        <br><br>
+        <div class="row center">
+            <% if @poll.poll_avatar_file_name %>
+                <%= image_tag @poll.poll_avatar.url(:large) %>
+            <% end %>
+        </div>
+        <br><br>
+        <div class="row">
+            <span id="">Pergunta: </span><%= @poll.question %>
+        </div>
+        <%= form_for :answer, :url => answer_poll_path, :html => { multipart: true } do |f| %>
+            <% if !@poll.type %>
+                <div class="row">
+                    <div class="input-field col s12">
+                        <%= f.text_area :discursive_answer, :length => 300, :class => "materialize-textarea" %>
+                        <%= f.label :discursive_answer , 'Resposta' %><br />
+                    </div>
+                </div>
+                <div class="row center">
+                    <%= f.submit 'Responder', :name => 'disc_answer', :class => "btn blue" %>
+                </div>
+            <% else %>
+                <div class="row center">
+                    <%= f.submit 'Responder', :name => 'obj_answer', :class => "btn blue" %>
+                </div>
+            <% end %>
+        <% end %>
+    </div>
+<% end %>

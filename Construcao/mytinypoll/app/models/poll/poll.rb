@@ -9,7 +9,7 @@ class Poll::Poll < ActiveRecord::Base
     validates_presence_of :question
     validates_presence_of :deadline
     
-    has_attached_file :poll_avatar, styles: { medium: "300x300>", thumb: "100x100>" }
+    has_attached_file :poll_avatar, styles: { large: "600x600>", medium: "300x300>", thumb: "100x100>" }
     validates_attachment_content_type :poll_avatar, content_type: /\Aimage\/.*\Z/
     
     # Description:

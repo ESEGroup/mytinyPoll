@@ -15,6 +15,7 @@ Rails.application.routes.draw do
     post 'query_poll', to: 'poll/poll#query_poll', as: :query_poll
     post 'invite_people', to: 'poll/invite_people#invite_people', as: :invite_people
     get '/poll/:id', to: 'poll/poll#show', as: :show_poll
+    post 'answer_poll', to: 'poll/answer_poll#answer_poll', as: :answer_poll
     
     # Admin routes
     get 'admin/creator_permission_list/approve_request'
