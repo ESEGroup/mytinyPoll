@@ -1,0 +1,37 @@
+<div class="row">
+    <h5 class="header orange-text center"> Resultado da Busca </h5>
+    <% if !@queried_polls.empty? %>
+        <table class="highlight responsive-table">
+    	    <thead>
+    		    <tr>
+    			    <th class="left">Título</th>
+    				<th class="center">Operações</th>
+    			</tr>
+            </thead>
+    		<tbody>
+                <% @queried_polls.each do |poll| %>
+                    <tr>
+                    	<td width="75%" class="left">
+                    	    <a href="/poll/<%= poll.id %>"><%= poll.title %></a>
+                    	</td>
+                    	<td width="25%" class="center">
+                            <!-- Answer the Poll -->
+                            <%= link_to show_poll_path(:id => poll.id),
+                                :class => 'btn-floating yellow' do %>
+                                <i class="material-icons">question_answer</i>
+                            <% end %>
+                            
+                            <!-- Check results --> 
+                        	<%= link_to root_path,
+                                :class => 'btn-floating red' do %>
+                                <i class="material-icons">trending_up</i>
+                            <% end %>
+                    	</td>
+                    </tr>
+                <% end %>
+            </tbody>
+        </table>
+    <% else %>
+        <h6 class="header blue-text"> Nenhum resultado foi encontrado </h6>
+    <% end %>
+</div>

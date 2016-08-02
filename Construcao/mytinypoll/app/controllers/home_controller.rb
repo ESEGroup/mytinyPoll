@@ -32,6 +32,8 @@ class HomeController < ApplicationController
   # to not loose the current_user session
   def search_poll
     if current_user
+      @queried_polls = []
+      @show_search_list = false
       render 'poll/search_poll'
     end
   end

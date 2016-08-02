@@ -24,13 +24,9 @@ class Poll::PollController < ApplicationController
             query_params[:search_type],
             current_user
         )
-        
-        puts "SEARCH_RESULT = " + search_result.to_s
-        # Get the result and show
-        search_result.each do |results|
-            puts "TITLE RESULT : " + results.title.to_s
-        end
-        render :json => search_result
+        @queried_polls = search_result
+        @show_search_list = true
+        render 'poll/search_poll'
     end
     
     def show

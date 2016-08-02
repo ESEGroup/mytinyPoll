@@ -22,6 +22,11 @@
                 </div>
             <% end %>
         </div>
+        <br><br>
+        <% if @show_search_list %>
+            <div id="query_result">
+                <%= render "poll/list_polls" %>
+            </div>
+        <% end %>
     </div>
-    <br><br>
 <% end %>
