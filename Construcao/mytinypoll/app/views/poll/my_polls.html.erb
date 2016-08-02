@@ -24,7 +24,9 @@
                 		<tbody>
                             <% created_polls.each do |poll| %>
                                 <tr>
-                                	<td width="75%" class="left"><%= poll.title %></td>
+                                	<td width="75%" class="left">
+                                	    <a href="/poll/<%= poll.id %>"><%= poll.title %></a>
+                                	</td>
                                 	<td width="25%" class="center">
                                         <!-- Edit the Poll -->
                                         <%= link_to root_path,
@@ -75,10 +77,12 @@
                 		<tbody>
                             <% invited_polls.each do |poll| %>
                                 <tr>
-                                	<td width="75%" class="left"><%= poll.title %></td>
+                                	<td width="75%" class="left">
+                                	    <a href="/poll/<%= poll.id %>"><%= poll.title %></a>
+                                	</td>
                                 	<td width="25%" class="center">
                                         <!-- Answer the Poll -->
-                                        <%= link_to root_path,
+                                        <%= link_to show_poll_path(:id => poll.id),
                                             :class => 'btn-floating yellow' do %>
                                             <i class="material-icons">question_answer</i>
                                         <% end %>

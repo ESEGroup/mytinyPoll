@@ -33,6 +33,11 @@ class Poll::PollController < ApplicationController
         render :json => search_result
     end
     
+    def show
+        @poll = ::Poll::Poll.find(params[:id])
+        render :json => @poll
+    end
+    
     # Strong parameter methods
     private
         def poll_params
