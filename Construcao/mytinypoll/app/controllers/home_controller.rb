@@ -41,7 +41,7 @@ class HomeController < ApplicationController
   # to not loose the current_user session
   def my_polls
     if current_user
-      render 'poll/my_poll'
+      render 'poll/my_polls'
     end
   end
 end

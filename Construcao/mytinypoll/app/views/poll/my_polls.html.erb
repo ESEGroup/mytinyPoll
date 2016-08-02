@@ -1,0 +1,103 @@
+<%= render :layout => '/layouts/user_layout' do %>
+    <br><br>
+    <div class="container">
+        <h4 class="header center blue-text"> Suas Enquetes </h4>
+        <br><br>
+        <div class="row">
+            <div class="col s12">
+                <ul class="tabs">
+                    <li class="tab col s3"><a class="active" href="#created">Criadas</a></li>
+                    <li class="tab col s3"><a class="active" href="#answered">Respondidas</a></li>
+                    <li class="tab col s3"><a class="active" href="#invited">Convidado</a></li>
+                </ul>
+            </div>
+            <div id="created" class="col s12">
+                <h5 class="header orange-text center"> Criadas </h5>
+                <% if !created_polls.empty? %>
+                    <table class="highlight responsive-table">
+                	    <thead>
+                		    <tr>
+                			    <th class="left">Título</th>
+                				<th class="center">Operações</th>
+                			</tr>
+                        </thead>
+                		<tbody>
+                            <% created_polls.each do |poll| %>
+                                <tr>
+                                	<td width="75%" class="left"><%= poll.title %></td>
+                                	<td width="25%" class="center">
+                                        <!-- Edit the Poll -->
+                                        <%= link_to root_path,
+                                            :class => 'btn-floating yellow' do %>
+                                            <i class="material-icons">edit</i>
+                                        <% end %>
+                                                    
+                                        <!-- Invite people to answer -->    
+                                    	<%= link_to root_path,
+                                            :class => 'btn-floating blue' do %>
+                                            <i class="material-icons">email</i>
+                                        <% end %>
+                                        
+                                        <!-- Check results --> 
+                                    	<%= link_to root_path,
+                                            :class => 'btn-floating red' do %>
+                                            <i class="material-icons">trending_up</i>
+                                        <% end %>
+                                	</td>
+                                </tr>
+                            <% end %>
+                        </tbody>
+                    </table>
+                <% else %>
+                    <h6 class="header blue-text"> Você ainda não criou enquetes </h6>
+                        <div class="col s12 center">
+                            <%= link_to :create_poll,
+                                :class => 'waves-effect waves-light btn blue' do %>
+                                <i class="material-icons left">add</i> Criar Enquete
+                            <% end %>
+                        </div>
+                <% end %>
+            </div>
+            <div id="answered" class="col s12">
+                <h5 class="header orange-text center"> Respondidas </h5>
+                Todo
+            </div>
+            <div id="invited" class="col s12">
+                <h5 class="header orange-text center"> Convidado </h5>
+                <% if !invited_polls.empty? %>
+                    <table class="highlight responsive-table">
+                	    <thead>
+                		    <tr>
+                			    <th class="left">Título</th>
+                				<th class="center">Operações</th>
+                			</tr>
+                        </thead>
+                		<tbody>
+                            <% invited_polls.each do |poll| %>
+                                <tr>
+                                	<td width="75%" class="left"><%= poll.title %></td>
+                                	<td width="25%" class="center">
+                                        <!-- Answer the Poll -->
+                                        <%= link_to root_path,
+                                            :class => 'btn-floating yellow' do %>
+                                            <i class="material-icons">question_answer</i>
+                                        <% end %>
+                                        
+                                        <!-- Check results --> 
+                                    	<%= link_to root_path,
+                                            :class => 'btn-floating red' do %>
+                                            <i class="material-icons">trending_up</i>
+                                        <% end %>
+                                	</td>
+                                </tr>
+                            <% end %>
+                        </tbody>
+                    </table>
+                <% else %>
+                <br><br>
+                    <h6 class="header blue-text center"> Nenhum convite enviado para o email desta conta. </h6>
+                <% end %>
+            </div>
+        </div>
+    </div>
+<% end %>

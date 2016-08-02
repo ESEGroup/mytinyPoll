@@ -2,6 +2,8 @@
 # => Model for a generic Poll. This class ...
 class Poll::Poll < ActiveRecord::Base
     belongs_to :user
+    has_many :poll_invite_people, :class_name => "::Poll::InvitePerson"
+    
     validates_presence_of :title
     validates_presence_of :privacy
     validates_presence_of :question
