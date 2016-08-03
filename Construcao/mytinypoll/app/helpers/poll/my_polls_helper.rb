@@ -10,7 +10,7 @@ module Poll::MyPollsHelper
     
     def invited_polls
         query_result = ::Poll::Poll.joins("INNER JOIN poll_invite_people ON " + 
-            "poll_invite_people.poll_polls_id=poll_polls.id").where("email='#{current_user.email}'")
+            "poll_invite_people.poll_polls_id=poll_polls.id").where("poll_invite_people.email='#{current_user.email}'")
         query_result.take(query_result.length)
     end
 end

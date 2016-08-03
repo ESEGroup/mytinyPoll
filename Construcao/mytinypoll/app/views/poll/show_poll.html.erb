@@ -11,9 +11,11 @@
         </div>
         <br><br>
         <div class="row">
-            <span id="">Pergunta: </span><%= @poll.question %>
+            <b>Pergunta: </b><%= @poll.question %>
         </div>
         <%= form_for :answer, :url => answer_poll_path, :html => { multipart: true } do |f| %>
+            <%= f.hidden_field :poll_id, :value => @poll.id %>
+            <%= f.hidden_field :user_id, :value => current_user.id %>
             <% if !@poll.type %>
                 <div class="row">
                     <div class="input-field col s12">
@@ -25,6 +27,13 @@
                     <%= f.submit 'Responder', :name => 'disc_answer', :class => "btn blue" %>
                 </div>
             <% else %>
+                <% poll_alternatives(@poll).each do |i| %>
+                    <div class="row">
+                        <%= f.radio_button :poll_opts, i.id %>
+                        <%= f.label :poll_opts, i.alternative, :value => i.id %>
+                    </div>
+                <% end %>
+                </div>
                 <div class="row center">
                     <%= f.submit 'Responder', :name => 'obj_answer', :class => "btn blue" %>
                 </div>
