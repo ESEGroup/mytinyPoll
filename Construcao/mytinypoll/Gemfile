@@ -40,6 +40,8 @@ gem 'cancan'
 gem 'rolify'
 # Gem to handle file upload/download
 gem "paperclip", "~> 5.0.0"
+# Gem to generate graphs
+gem "chartkick"
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development

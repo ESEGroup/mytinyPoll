@@ -16,6 +16,8 @@
 //= require_tree .
 //= require materialize-sprockets
 //= require materialize/extras/nouislider
+//= require Chart.bundle
+//= require chartkick
 
 (function($){
   $(function(){
